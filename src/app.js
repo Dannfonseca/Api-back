@@ -42,13 +42,13 @@ app.put("/cadastro", (req, res) => {
 });
 
 
-app.get("/cadastro", async (req, res) => {
+app.get("/cadastros", async (req, res) => {
   let cadastros = await SellectAllCadastros();
   res.send(cadastros);
 });
 
 
-app.get("/cadastros", async (req, res) => {
+app.get("/cadastro", async (req, res) => {
   if (!req.body.id) {
     res.json({ msg: "Id não encontrado!", statusCode: 400 });
   } else {
