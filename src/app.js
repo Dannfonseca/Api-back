@@ -36,7 +36,7 @@ app.put("/cadastro", (req, res) => {
   if (req.body && !req.body.id) {
     res.json({ msg: "Id não encontrado!", statusCode: 400 });
   } else {
-    updateCadastro(req.body);
+    updateCadastro(req.body);D
     res.json({ msg: "Cadastro atualizado com sucesso!" });
   }
 });
@@ -62,10 +62,12 @@ app.delete("/cadastro", async (req, res) => {
   if (!req.body.id) {
     res.json({ msg: "Id não encontrado!", statusCode: 400 });
   } else {
-    let cadastros = await deleteProduto(req.body.id);
+    let cadastros = await deleteCadastro(req.body.id);
     res.json({ msg: "Cadastro deletado", statusCode: 200 });
   }
 });
+
+
 
 //---- Servidor e porta ----//
 app.listen(3000, () => {
