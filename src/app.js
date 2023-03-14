@@ -36,7 +36,7 @@ app.put("/cadastro", (req, res) => {
   if (req.body && !req.body.id) {
     res.json({ msg: "Id não encontrado!", statusCode: 400 });
   } else {
-    updateCadastro(req.body);D
+    updateCadastro(req.body);
     res.json({ msg: "Cadastro atualizado com sucesso!" });
   }
 });
