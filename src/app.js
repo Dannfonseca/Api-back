@@ -12,6 +12,13 @@ import cors from "cors"
 
 const app = express();
 const PORT = 3000;
+let corsOptions = {
+  origin: function(origin,callback){
+    db.loadOrigins(function(error,origins){
+      callback(error,origins)
+    })
+  }
+}
 app.use(cors())
 
 //---- Middleware ----//
@@ -22,7 +29,7 @@ app.use(express.json());
 createTable();
 
 //---- ROTAS HTTP ----//'
-app.get("/", (req, res) => {
+app.get("/", (req, res, next) => {
   // res.send("Olá mundo!")
   res.json({ msg: "Ok" });
 });
