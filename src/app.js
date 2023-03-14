@@ -8,9 +8,11 @@ import {
   SellectCadastro,
   deleteCadastro,
 } from "./controller/Cadastros.js";
+import cors from "cors"
 
 const app = express();
 const PORT = 3000;
+app.use(cors())
 
 //---- Middleware ----//
 app.use(express.json());
